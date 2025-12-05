@@ -260,4 +260,4 @@ output appInsightsInstrumentationKey string = appInsights.outputs.instrumentatio
 output aiFoundryName string = aiFoundry.outputs.name
 
 @description('The principal ID of the Web App managed identity')
-output webAppPrincipalId string = webApp.outputs.?systemAssignedMIPrincipalId ?? ''
+output webAppPrincipalId string = webApp.outputs.systemAssignedMIPrincipalId!
