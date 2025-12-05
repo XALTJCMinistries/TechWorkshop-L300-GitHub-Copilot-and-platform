@@ -143,6 +143,10 @@ module webApp 'br/public:avm/res/web/site:0.15.1' = {
           value: 'false'
         }
         {
+          name: 'WEBSITES_PORT'
+          value: '80'
+        }
+        {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
           value: appInsights.outputs.connectionString
         }

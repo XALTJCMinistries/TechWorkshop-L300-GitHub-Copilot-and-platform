@@ -25,11 +25,11 @@ WORKDIR /app
 # Copy published application
 COPY --from=build /app/publish .
 
-# Expose port 8080 (Azure App Service default)
-EXPOSE 8080
+# Expose port 80 (default for ASP.NET)
+EXPOSE 80
 
 # Set environment variables
-ENV ASPNETCORE_URLS=http://+:8080
+ENV ASPNETCORE_URLS=http://+:80
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Start the application
