@@ -55,15 +55,18 @@ namespace ZavaStorefront.Services
                 var jsonContent = JsonSerializer.Serialize(requestBody);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
+                // Create a new HttpRequestMessage to set headers per-request (thread-safe)
+                using var request = new HttpRequestMessage(HttpMethod.Post, _settings.EndpointUrl);
+                request.Content = content;
+
                 // Set API key header if configured
                 if (!string.IsNullOrWhiteSpace(_settings.ApiKey))
                 {
-                    _httpClient.DefaultRequestHeaders.Authorization = 
-                        new AuthenticationHeaderValue("Bearer", _settings.ApiKey);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _settings.ApiKey);
                 }
 
                 _logger.LogInformation("Sending message to Phi4 endpoint");
-                var response = await _httpClient.PostAsync(_settings.EndpointUrl, content);
+                var response = await _httpClient.SendAsync(request);
 
                 if (!response.IsSuccessStatusCode)
                 {

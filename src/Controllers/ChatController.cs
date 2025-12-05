@@ -38,9 +38,4 @@ namespace ZavaStorefront.Controllers
             return Json(response);
         }
     }
-
-    public class ChatMessageRequest
-    {
-        public string Message { get; set; } = string.Empty;
-    }
 }
