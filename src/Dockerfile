@@ -30,7 +30,6 @@ EXPOSE 80
 
 # Set environment variables
 ENV ASPNETCORE_URLS=http://+:80
-ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Start the application
 ENTRYPOINT ["dotnet", "ZavaStorefront.dll"]
