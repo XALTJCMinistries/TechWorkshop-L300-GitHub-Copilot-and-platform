@@ -35,8 +35,8 @@ hooks:
     shell: pwsh
     run: |
       Write-Host "Building and pushing container image to ACR..."
-      $acrName = (azd env get-values | ConvertFrom-StringData).AZURE_CONTAINER_REGISTRY_NAME
-      $acrLoginServer = (azd env get-values | ConvertFrom-StringData).AZURE_CONTAINER_REGISTRY_LOGIN_SERVER
+      $acrName = (azd env get-values | ConvertFrom-StringData).AZURE_ACRNAME
+      $acrLoginServer = (azd env get-values | ConvertFrom-StringData).AZURE_ACRLOGINSERVER
       
       if ($acrName) {
         az acr build --registry $acrName --image zavastorefront:latest ./src
