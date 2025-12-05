@@ -129,6 +129,7 @@ module webApp 'br/public:avm/res/web/site:0.15.1' = {
     }
     siteConfig: {
       linuxFxVersion: 'DOCKER|${acr.outputs.loginServer}/zavastorefront:latest'
+      acrUseManagedIdentityCreds: true
       ftpsState: 'FtpsOnly'
       minTlsVersion: '1.2'
       alwaysOn: true
