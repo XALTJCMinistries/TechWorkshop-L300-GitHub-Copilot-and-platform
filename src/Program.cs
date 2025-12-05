@@ -1,3 +1,4 @@
+using ZavaStorefront.Models;
 using ZavaStorefront.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,13 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddScoped<CartService>();
+
+// Configure Chat settings and service
+builder.Services.Configure<ChatSettings>(builder.Configuration.GetSection("ChatSettings"));
+builder.Services.AddHttpClient<ChatService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(60);
+});
 
 var app = builder.Build();
 
