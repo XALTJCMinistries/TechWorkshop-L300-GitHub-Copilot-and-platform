@@ -188,7 +188,7 @@ The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml
 2. Deploys to Azure Web App for Containers
 3. Supports manual infrastructure provisioning via workflow dispatch
 
-**Required Secrets:**
+**Required Variables:**
 - `AZURE_CLIENT_ID` - Service principal client ID
 - `AZURE_TENANT_ID` - Azure AD tenant ID
 - `AZURE_SUBSCRIPTION_ID` - Azure subscription ID
