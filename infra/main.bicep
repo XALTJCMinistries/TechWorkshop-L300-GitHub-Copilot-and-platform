@@ -184,10 +184,10 @@ module keyVault 'br/public:avm/res/key-vault/vault:0.11.0' = {
     name: keyVaultName
     location: location
     tags: tags
-    enablePurgeProtection: false // Set to true for production
+    // Purge protection is required for production environments.
+    enablePurgeProtection: environmentName == 'prod'
     enableRbacAuthorization: true
     sku: 'standard'
-  }
 }
 
 // -------------------------------------------------------------------------
